@@ -54,7 +54,7 @@ public class BookDetailFragment extends Fragment implements LoaderManager.Loader
             getLoaderManager().restartLoader(LOADER_ID, null, this);
         }
 
-        mRootView = inflater.inflate(R.layout.fragment_full_book, container, false);
+        mRootView = inflater.inflate(R.layout.fragment_book_detail, container, false);
         mRootView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
