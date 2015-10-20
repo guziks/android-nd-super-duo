@@ -1,4 +1,4 @@
-package it.jaschke.alexandria.services;
+package it.jaschke.alexandria.service;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,10 +11,10 @@ import java.io.InputStream;
 /**
  * Created by saj on 11/01/15.
  */
-public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
+public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     ImageView bmImage;
 
-    public DownloadImage(ImageView bmImage) {
+    public DownloadImageTask(ImageView bmImage) {
         this.bmImage = bmImage;
     }
 

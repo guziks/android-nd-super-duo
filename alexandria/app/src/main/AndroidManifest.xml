@@ -38,7 +38,7 @@
             android:authorities="it.jaschke.alexandria"
             android:exported="false" />
         <service
-            android:name=".services.BookService"
+            android:name=".service.BookService"
             android:exported="false" >
         </service>
     </application>

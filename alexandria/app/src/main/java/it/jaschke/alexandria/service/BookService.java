@@ -1,4 +1,4 @@
-package it.jaschke.alexandria.services;
+package it.jaschke.alexandria.service;
 
 import android.app.IntentService;
 import android.content.ContentValues;
