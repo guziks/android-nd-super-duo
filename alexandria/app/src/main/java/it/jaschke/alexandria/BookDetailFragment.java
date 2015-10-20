@@ -56,8 +56,8 @@ public class BookDetailFragment extends Fragment implements LoaderManager.Loader
             @Override
             public void onClick(View view) {
                 Intent bookIntent = new Intent(getActivity(), BookService.class);
-                bookIntent.putExtra(BookService.EAN, ean);
-                bookIntent.setAction(BookService.DELETE_BOOK);
+                bookIntent.putExtra(BookService.INTENT_EXTRA_EAN, ean);
+                bookIntent.setAction(BookService.INTENT_ACTION_DELETE_BOOK);
                 getActivity().startService(bookIntent);
                 getActivity().getSupportFragmentManager().popBackStack();
             }
