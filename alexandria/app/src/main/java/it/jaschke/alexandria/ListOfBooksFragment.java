@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import it.jaschke.alexandria.api.BookListAdapter;
-import it.jaschke.alexandria.api.Callback;
 import it.jaschke.alexandria.data.AlexandriaContract;
 
 
@@ -127,5 +126,12 @@ public class ListOfBooksFragment extends Fragment implements LoaderManager.Loade
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         activity.setTitle(R.string.books);
+    }
+
+    /**
+     * Created by saj on 25/01/15.
+     */
+    public static interface Callback {
+        public void onItemSelected(String ean);
     }
 }
