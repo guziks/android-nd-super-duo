@@ -12,15 +12,17 @@ import java.io.InputStream;
  * Created by saj on 11/01/15.
  */
 public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-    ImageView bmImage;
+
+    private ImageView mBmImage;
 
     public DownloadImageTask(ImageView bmImage) {
-        this.bmImage = bmImage;
+        this.mBmImage = bmImage;
     }
 
     protected Bitmap doInBackground(String... urls) {
         String urlDisplay = urls[0];
         Bitmap bookCover = null;
+
         try {
             InputStream in = new java.net.URL(urlDisplay).openStream();
             bookCover = BitmapFactory.decodeStream(in);
@@ -28,11 +30,12 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
+
         return bookCover;
     }
 
     protected void onPostExecute(Bitmap result) {
-        bmImage.setImageBitmap(result);
+        mBmImage.setImageBitmap(result);
     }
 }
 

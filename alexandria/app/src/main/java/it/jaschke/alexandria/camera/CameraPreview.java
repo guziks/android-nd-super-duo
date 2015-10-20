@@ -18,16 +18,16 @@ import java.io.IOException;
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
     private SurfaceHolder mHolder;
     private Camera mCamera;
-    private Camera.PreviewCallback previewCallback;
-    private Camera.AutoFocusCallback autoFocusCallback;
+    private Camera.PreviewCallback mPreviewCallback;
+    private Camera.AutoFocusCallback mAutoFocusCallback;
 
     public CameraPreview(Context context, Camera camera,
                          Camera.PreviewCallback previewCb,
                          Camera.AutoFocusCallback autoFocusCb) {
         super(context);
         mCamera = camera;
-        previewCallback = previewCb;
-        autoFocusCallback = autoFocusCb;
+        mPreviewCallback = previewCb;
+        mAutoFocusCallback = autoFocusCb;
 
         /*
          * Set camera to continuous focus if supported, otherwise use
@@ -38,7 +38,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         for (String f : parameters.getSupportedFocusModes()) {
             if (f == Parameters.FOCUS_MODE_CONTINUOUS_PICTURE) {
                 mCamera.setFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
-                autoFocusCallback = null;
+                mAutoFocusCallback = null;
                 break;
             }
         }
@@ -88,9 +88,9 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             mCamera.setDisplayOrientation(90);
 
             mCamera.setPreviewDisplay(mHolder);
-            mCamera.setPreviewCallback(previewCallback);
+            mCamera.setPreviewCallback(mPreviewCallback);
             mCamera.startPreview();
-            mCamera.autoFocus(autoFocusCallback);
+            mCamera.autoFocus(mAutoFocusCallback);
         } catch (Exception e){
             Log.d("DBG", "Error starting camera preview: " + e.getMessage());
         }
