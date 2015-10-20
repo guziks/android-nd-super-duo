@@ -7,7 +7,7 @@
 
 ## Exceeds Specifications
 - [ ] Set default value for start screen setting
-- [ ] Fix issue "Insert ISBN..." text is not shown after screen rotate
+- [x] Fix issue "Insert ISBN..." hint is not shown after screen rotate
 - [ ] Fix issue when list of books is not updated immediately after deleting a book
 - [x] Fix app crash on screen rotate in book details
 

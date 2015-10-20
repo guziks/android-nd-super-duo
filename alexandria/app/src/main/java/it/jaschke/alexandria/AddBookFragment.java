@@ -130,7 +130,6 @@ public class AddBookFragment extends Fragment implements LoaderManager.LoaderCal
 
         if (savedInstanceState != null) {
             mBookNumber.setText(savedInstanceState.getString(BOOK_NUMBER_KEY));
-            mBookNumber.setHint("");
         }
 
         return mRootView;
