@@ -6,6 +6,7 @@
     android:tag="PREFERENCE_TAG">
 
     <ListPreference
+        android:defaultValue="0"
         android:entries="@array/pref_start_options"
         android:entryValues="@array/pref_start_values"
         android:key="pref_startFragment"

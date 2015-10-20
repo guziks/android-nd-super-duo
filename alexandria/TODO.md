@@ -6,7 +6,7 @@
     - [x] Remove awful back button
 
 ## Exceeds Specifications
-- [ ] Set default value for start screen setting
+- [x] Set default value for start screen setting
 - [x] Fix issue "Insert ISBN..." hint is not shown after screen rotate
 - [ ] Fix issue when list of books is not updated immediately after deleting a book
 - [x] Fix app crash on screen rotate in book details
