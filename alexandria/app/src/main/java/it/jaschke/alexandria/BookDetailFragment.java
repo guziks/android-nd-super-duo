@@ -124,10 +124,6 @@ public class BookDetailFragment extends Fragment implements LoaderManager.Loader
 
         String categories = data.getString(data.getColumnIndex(AlexandriaContract.CategoryEntry.CATEGORY));
         ((TextView) mRootView.findViewById(R.id.categories)).setText(categories);
-
-        if(mRootView.findViewById(R.id.right_container) != null){
-            mRootView.findViewById(R.id.backButton).setVisibility(View.INVISIBLE);
-        }
     }
 
     @Override
