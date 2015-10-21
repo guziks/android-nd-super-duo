@@ -78,6 +78,12 @@ public class ListOfBooksFragment extends Fragment implements LoaderManager.Loade
         return rootView;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        restartLoader();
+    }
+
     private void restartLoader(){
         getLoaderManager().restartLoader(LOADER_ID, null, this);
     }
