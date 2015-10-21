@@ -10,6 +10,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,9 +74,7 @@ public class AddBookFragment extends Fragment implements LoaderManager.LoaderCal
                 String ean = s.toString();
 
                 //catch isbn10 numbers
-                if (ean.length() == 10 && !ean.startsWith("978")) {
-                    ean = "978" + ean;
-                }
+                ean = fromISBN10(ean);
 
                 if (ean.length() < 13) {
                     clearFields();
@@ -121,7 +120,7 @@ public class AddBookFragment extends Fragment implements LoaderManager.LoaderCal
             @Override
             public void onClick(View view) {
                 Intent bookIntent = new Intent(getActivity(), BookService.class);
-                bookIntent.putExtra(BookService.INTENT_EXTRA_EAN, mBookNumber.getText().toString());
+                bookIntent.putExtra(BookService.INTENT_EXTRA_EAN, fromISBN10(mBookNumber.getText().toString()));
                 bookIntent.setAction(BookService.INTENT_ACTION_DELETE_BOOK);
                 getActivity().startService(bookIntent);
                 mBookNumber.setText("");
@@ -210,5 +209,17 @@ public class AddBookFragment extends Fragment implements LoaderManager.LoaderCal
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         activity.setTitle(R.string.scan);
+    }
+
+    private boolean isISBN10(String ean) {
+        return (ean.length() == 10 && !ean.startsWith("978"));
+    }
+
+    private String fromISBN10(String ean) {
+        if (isISBN10(ean)) {
+            return "978" + ean;
+        } else {
+            return ean;
+        }
     }
 }

@@ -7,9 +7,10 @@
 
 ## Exceeds Specifications
 - [x] Set default value for start screen setting
-- [x] Fix issue "Insert ISBN..." hint is not shown after screen rotate
-- [ ] Fix issue when list of books is not updated immediately after deleting a book
 - [x] Fix app crash on screen rotate in book details
+- [x] Fix issue: "Insert ISBN..." hint is not shown after screen rotate
+- [ ] Fix issue: when list of books is not updated immediately after deleting a book
+- [x] Fix issue: cancel button doesn't work if search was done with short (isbn10) number
 
 ## Other
 - [ ] Make sane toolbar (in particular for settings activity)
