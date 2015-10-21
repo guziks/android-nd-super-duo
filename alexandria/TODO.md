@@ -1,6 +1,6 @@
 ## Meets Specifications
 - [x] Sanitize code style
-- [ ] Use some library to scan bar codes
+- [x] Use some library to scan bar codes
 - [x] Fix app crash while adding a book offline
 - [x] Tweak details screen layout
     - [x] Remove awful back button
