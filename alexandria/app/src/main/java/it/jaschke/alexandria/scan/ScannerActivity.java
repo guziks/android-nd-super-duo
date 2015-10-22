@@ -19,8 +19,8 @@ public class ScannerActivity extends Activity implements ZBarScannerView.ResultH
 
     public static final String RESULT_BOOK_NUMBER_KEY = "book_number";
 
-    private final String[] supportedFormatsArrsy = {"ISBN10", "EAN_8", "EAN_13"};
-    private final List<String> supportedFormats = Arrays.asList(supportedFormatsArrsy);
+    private final String[] supportedFormatsArray = {"ISBN10", "EAN_8", "EAN_13"};
+    private final List<String> supportedFormats = Arrays.asList(supportedFormatsArray);
 
     private ZBarScannerView mScannerView;
 
