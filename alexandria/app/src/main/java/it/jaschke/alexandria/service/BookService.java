@@ -155,6 +155,7 @@ public class BookService extends IntentService {
         final String IMG_URL_PATH = "imageLinks";
         final String IMG_URL = "thumbnail";
 
+        // Fix app crash while adding a book offline
         if (bookJsonString == null) {
             return;
         }

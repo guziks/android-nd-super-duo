@@ -81,7 +81,7 @@ public class ListOfBooksFragment extends Fragment implements LoaderManager.Loade
     @Override
     public void onStart() {
         super.onStart();
-        restartLoader();
+        restartLoader(); // Fix issue: list of books is not updated immediately after deleting a book
     }
 
     private void restartLoader(){

@@ -104,6 +104,7 @@ public class BookDetailFragment extends Fragment implements LoaderManager.Loader
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text) + mBookTitle);
 
+        // Fix app crash on screen rotate in book details
         if (mShareActionProvider != null) {
             mShareActionProvider.setShareIntent(shareIntent);
         }
