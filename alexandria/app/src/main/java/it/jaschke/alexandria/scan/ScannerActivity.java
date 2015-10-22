@@ -51,15 +51,15 @@ public class ScannerActivity extends Activity implements ZBarScannerView.ResultH
         Log.v(TAG, number);
         Log.v(TAG, format);
 
-        boolean goodQuality = false;
+        boolean allDigits = false;
         try {
             Long.parseLong(number);
-            goodQuality = true;
+            allDigits = true;
         } catch (NumberFormatException e) {
             Toast.makeText(this, getString(R.string.unsupported_characters), Toast.LENGTH_SHORT).show();
         }
 
-        if (goodQuality && supportedFormats.contains(format)) {
+        if (allDigits && supportedFormats.contains(format)) {
             Intent resultIntent = new Intent();
             resultIntent.putExtra(RESULT_BOOK_NUMBER_KEY, number);
             setResult(Activity.RESULT_OK, resultIntent);
