@@ -63,7 +63,7 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
             }
         });
 
-        getLoaderManager().initLoader(SCORES_LOADER,null,this);
+        getLoaderManager().initLoader(SCORES_LOADER, null, this);
 
         return rootView;
     }
