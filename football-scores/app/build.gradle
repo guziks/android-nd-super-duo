@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+def FOOTBALL_DATA_API_KEY = '"' + FootballDataAPIKey + '"' ?: '"Missing API Key"';
+
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
@@ -12,6 +14,9 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        all {
+            buildConfigField 'String', 'FOOTBALL_DATA_API_KEY', FOOTBALL_DATA_API_KEY
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
