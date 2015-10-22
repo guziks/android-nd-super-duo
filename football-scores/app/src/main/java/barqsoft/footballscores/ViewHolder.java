@@ -9,13 +9,13 @@ import android.widget.TextView;
  */
 public class ViewHolder {
 
-    public TextView homeName;
-    public TextView awayName;
-    public TextView score;
-    public TextView date;
+    public TextView  homeName;
+    public TextView  awayName;
+    public TextView  score;
+    public TextView  date;
     public ImageView homeCrest;
     public ImageView awayCrest;
-    public double matchId;
+    public double    matchId;
 
     public ViewHolder(View view) {
         homeName  = (TextView)  view.findViewById(R.id.home_name);

@@ -222,15 +222,15 @@ public class FetchService extends IntentService {
                     matchDay = matchData.getString(MATCH_DAY);
 
                     ContentValues match_values = new ContentValues();
-                    match_values.put(DatabaseContract.scores_table.MATCH_ID,matchId);
-                    match_values.put(DatabaseContract.scores_table.DATE_COL,date);
-                    match_values.put(DatabaseContract.scores_table.TIME_COL,time);
-                    match_values.put(DatabaseContract.scores_table.HOME_COL,home);
-                    match_values.put(DatabaseContract.scores_table.AWAY_COL,away);
-                    match_values.put(DatabaseContract.scores_table.HOME_GOALS_COL,homeGoals);
-                    match_values.put(DatabaseContract.scores_table.AWAY_GOALS_COL,awayGoals);
-                    match_values.put(DatabaseContract.scores_table.LEAGUE_COL,league);
-                    match_values.put(DatabaseContract.scores_table.MATCH_DAY,matchDay);
+                    match_values.put(DatabaseContract.ScoresTable.MATCH_ID,matchId);
+                    match_values.put(DatabaseContract.ScoresTable.DATE_COL,date);
+                    match_values.put(DatabaseContract.ScoresTable.TIME_COL,time);
+                    match_values.put(DatabaseContract.ScoresTable.HOME_COL,home);
+                    match_values.put(DatabaseContract.ScoresTable.AWAY_COL,away);
+                    match_values.put(DatabaseContract.ScoresTable.HOME_GOALS_COL,homeGoals);
+                    match_values.put(DatabaseContract.ScoresTable.AWAY_GOALS_COL,awayGoals);
+                    match_values.put(DatabaseContract.ScoresTable.LEAGUE_COL,league);
+                    match_values.put(DatabaseContract.ScoresTable.MATCH_DAY,matchDay);
 
                     //log spam
                     //Log.v(LOG_TAG,matchId);
