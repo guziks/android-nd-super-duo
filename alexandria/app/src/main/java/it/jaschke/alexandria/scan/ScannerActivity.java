@@ -9,6 +9,7 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
 
+import it.jaschke.alexandria.R;
 import me.dm7.barcodescanner.zbar.Result;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
@@ -55,7 +56,7 @@ public class ScannerActivity extends Activity implements ZBarScannerView.ResultH
             Long.parseLong(number);
             goodQuality = true;
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Code contains unsupported characters, try again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.unsupported_characters), Toast.LENGTH_SHORT).show();
         }
 
         if (goodQuality && supportedFormats.contains(format)) {
@@ -64,7 +65,7 @@ public class ScannerActivity extends Activity implements ZBarScannerView.ResultH
             setResult(Activity.RESULT_OK, resultIntent);
             finish();
         } else {
-            Toast.makeText(this, "Code is not supported, try again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.code_is_not_supported), Toast.LENGTH_SHORT).show();
         }
 
         mScannerView.startCamera();
