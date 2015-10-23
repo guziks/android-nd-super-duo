@@ -33,7 +33,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/test_text"
-                android:textSize="@dimen/TeamNames"/>
+                android:textSize="@dimen/team_names"/>
         </LinearLayout>
 
         <LinearLayout
@@ -50,7 +50,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/test_text"
-                android:textSize="@dimen/Score"/>
+                android:textSize="@dimen/score"/>
 
             <TextView
                 android:id="@+id/data_textview"
@@ -83,7 +83,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/test_text"
-                android:textSize="@dimen/TeamNames"/>
+                android:textSize="@dimen/team_names"/>
         </LinearLayout>
 
     </LinearLayout>
