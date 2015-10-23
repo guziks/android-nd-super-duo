@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.internal.widget.ViewUtils;
 import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +21,15 @@ import java.util.Date;
  */
 public class PagerFragment extends Fragment {
 
+    private static final String TAG = PagerFragment.class.getSimpleName();
+
     public static final int NUM_PAGES = 5;
 
     public ViewPager pagerHandler;
 
     private PagerAdapter mPagerAdapter;
     private MainScreenFragment[] mViewFragments = new MainScreenFragment[5];
+    private boolean mRTL;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,17 +38,29 @@ public class PagerFragment extends Fragment {
         pagerHandler = (ViewPager) rootView.findViewById(R.id.pager);
         mPagerAdapter = new PagerAdapter(getChildFragmentManager());
 
-        for (int i = 0;i < NUM_PAGES;i++) {
+        // for some reason doesn't work with "Force RTL layout direction" developer option
+        mRTL = ViewUtils.isLayoutRtl(rootView);
+
+        for (int i = 0; i < NUM_PAGES; i++) {
             Date fragmentDate = new Date(System.currentTimeMillis() + ((i - 2) * 86400000));
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            mViewFragments[i] = new MainScreenFragment();
-            mViewFragments[i].setFragmentDate(dateFormat.format(fragmentDate));
+            int j = indexRtlCheck(i);
+            mViewFragments[j] = new MainScreenFragment();
+            mViewFragments[j].setFragmentDate(dateFormat.format(fragmentDate));
         }
 
         pagerHandler.setAdapter(mPagerAdapter);
         pagerHandler.setCurrentItem(MainActivity.currentFragment);
 
         return rootView;
+    }
+
+    private int indexRtlCheck(int i) {
+        if (mRTL) {
+            return NUM_PAGES - 1 - i;
+        } else {
+            return i;
+        }
     }
 
     private class PagerAdapter extends FragmentStatePagerAdapter {
@@ -66,6 +82,7 @@ public class PagerFragment extends Fragment {
         // Returns the page title for the top indicator
         @Override
         public CharSequence getPageTitle(int position) {
+            position = indexRtlCheck(position);
             return getDayName(getActivity(), System.currentTimeMillis() + ((position - 2) * 86400000));
         }
 
