@@ -7,4 +7,6 @@
     <dimen name="TeamNames">17sp</dimen>
     <dimen name="Score">30sp</dimen>
     <dimen name="League">15sp</dimen>
+    <dimen name="pager_tab_strip_text_size">18sp</dimen>
+    <dimen name="about_text_size">16sp</dimen>
 </resources>
