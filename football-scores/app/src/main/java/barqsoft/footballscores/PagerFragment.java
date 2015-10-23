@@ -30,7 +30,7 @@ public class PagerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.pager_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pager, container, false);
         pagerHandler = (ViewPager) rootView.findViewById(R.id.pager);
         mPagerAdapter = new PagerAdapter(getChildFragmentManager());
 

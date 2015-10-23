@@ -58,7 +58,7 @@ public class ScoresAdapter extends CursorAdapter {
         //Log.v(FetchScoreTask.LOG_TAG,String.valueOf(detailMatchId));
         LayoutInflater inflater = (LayoutInflater) context.getApplicationContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.detail_fragment, null);
+        View v = inflater.inflate(R.layout.fragment_detail, null);
         ViewGroup container = (ViewGroup) view.findViewById(R.id.details_fragment_container);
 
         if(holder.matchId == detailMatchId) {
