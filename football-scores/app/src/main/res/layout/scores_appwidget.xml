@@ -1,65 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/widget_background"
-    style="@style/ScoresWidget"
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:paddingTop="@dimen/widget_vertical_padding"
-    android:paddingBottom="@dimen/widget_vertical_padding"
-    android:paddingLeft="@dimen/widget_horizontal_padding"
-    android:paddingRight="@dimen/widget_horizontal_padding">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/home_name"
-        style="@style/ScoresWidget"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="start"
-        android:text="@string/test_text"
-        android:textSize="@dimen/team_names"/>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/score_textview"
-            style="@style/ScoresWidget"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/test_text"
-            android:textSize="@dimen/score"/>
-
-        <TextView
-            android:id="@+id/data_textview"
-            style="@style/ScoresWidget"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/test_text"/>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/away_name"
-        style="@style/ScoresWidget"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="end"
-        android:text="@string/test_text"
-        android:textSize="@dimen/team_names"/>
-
-</LinearLayout>
+    <include layout="@layout/scores_appwidget_small"/>
+</FrameLayout>
