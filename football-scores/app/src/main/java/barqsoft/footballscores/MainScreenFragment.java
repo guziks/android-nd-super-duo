@@ -32,8 +32,8 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     }
 
     private void updateScores() {
-        Intent service_start = new Intent(getActivity(), FetchService.class);
-        getActivity().startService(service_start);
+        Intent fetchService = new Intent(getActivity(), FetchService.class);
+        getActivity().startService(fetchService);
     }
 
     public void setFragmentDate(String date) {

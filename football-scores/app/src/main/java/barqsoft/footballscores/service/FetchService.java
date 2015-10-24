@@ -106,21 +106,21 @@ public class FetchService extends IntentService {
                 if (matches.length() == 0) {
                     //if there is no data, call the function on dummy data
                     //this is expected behavior during the off season.
-                    processJSONdata(getString(R.string.dummy_data), getApplicationContext(), false);
+                    processJsonData(getString(R.string.dummy_data), getApplicationContext(), false);
                     return;
                 }
 
-                processJSONdata(jsonData, getApplicationContext(), true);
+                processJsonData(jsonData, getApplicationContext(), true);
             } else {
                 //Could not Connect
                 Log.d(LOG_TAG, "Could not connect to server.");
             }
         } catch(Exception e) {
-            Log.e(LOG_TAG,e.getMessage());
+            Log.e(LOG_TAG, e.getMessage());
         }
     }
 
-    private void processJSONdata (String JSONdata,Context mContext, boolean isReal) {
+    private void processJsonData(String jsonData, Context mContext, boolean isReal) {
         //JSON data
         // This set of league codes is for the 2015/2016 season. In fall of 2016, they will need to
         // be updated. Feel free to use the codes
@@ -162,7 +162,7 @@ public class FetchService extends IntentService {
         String matchDay = null;
 
         try {
-            JSONArray matches = new JSONObject(JSONdata).getJSONArray(FIXTURES);
+            JSONArray matches = new JSONObject(jsonData).getJSONArray(FIXTURES);
 
             //ContentValues to be inserted
             Vector<ContentValues> values = new Vector <ContentValues> (matches.length());
