@@ -2,10 +2,10 @@
 <appwidget-provider
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialLayout="@layout/scores_appwidget"
-    android:minHeight="40dp"
-    android:minResizeHeight="40dp"
-    android:minResizeWidth="40dp"
-    android:minWidth="210dp"
+    android:minHeight="@dimen/widget_default_height"
+    android:minResizeHeight="@dimen/widget_min_resize_height"
+    android:minResizeWidth="@dimen/widget_min_resize_width"
+    android:minWidth="@dimen/widget_default_width"
     android:resizeMode="horizontal"
     android:updatePeriodMillis="1800000"
     android:widgetCategory="home_screen">

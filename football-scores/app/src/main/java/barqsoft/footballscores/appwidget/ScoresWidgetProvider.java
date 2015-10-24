@@ -1,12 +1,17 @@
 package barqsoft.footballscores.appwidget;
 
+import android.annotation.TargetApi;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.RemoteViews;
 
 import barqsoft.footballscores.DatabaseContract;
@@ -58,10 +63,23 @@ public class ScoresWidgetProvider extends AppWidgetProvider {
 
         final int N = appWidgetIds.length;
         for (int appWidgetId : appWidgetIds) {
+            // Find the correct layout based on the widget's width
+            int widgetWidth = getWidgetWidth(context, appWidgetManager, appWidgetId);
+            int defaultWidth = context.getResources().getDimensionPixelSize(R.dimen.widget_default_width);
+            int largeWidth = context.getResources().getDimensionPixelSize(R.dimen.widget_large_width);
+            int layoutId;
+            if (widgetWidth >= largeWidth) {
+                layoutId = R.layout.scores_appwidget_large;
+            } else if (widgetWidth >= defaultWidth) {
+                layoutId = R.layout.scores_appwidget;
+            } else {
+                layoutId = R.layout.scores_appwidget_small;
+            }
+
             Intent intent = new Intent(context, MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.scores_appwidget);
+            RemoteViews views = new RemoteViews(context.getPackageName(), layoutId);
             views.setOnClickPendingIntent(R.id.widget_background, pendingIntent);
             views.setTextViewText(R.id.home_name, latestHome);
             views.setTextViewText(R.id.away_name, latestAway);
@@ -72,5 +90,28 @@ public class ScoresWidgetProvider extends AppWidgetProvider {
 
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
+    }
+
+    private int getWidgetWidth(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
+        // Prior to Jelly Bean, widgets were always their default size
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            return context.getResources().getDimensionPixelSize(R.dimen.widget_default_width);
+        }
+        // For Jelly Bean and higher devices, widgets can be resized - the current size can be
+        // retrieved from the newly added App Widget Options
+        return getWidgetWidthFromOptions(context, appWidgetManager, appWidgetId);
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private int getWidgetWidthFromOptions(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
+        Bundle options = appWidgetManager.getAppWidgetOptions(appWidgetId);
+        if (options.containsKey(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)) {
+            int minWidthDp = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH);
+            // The width returned is in dp, but we'll convert it to pixels to match the other widths
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minWidthDp,
+                    displayMetrics);
+        }
+        return context.getResources().getDimensionPixelSize(R.dimen.widget_default_width);
     }
 }
