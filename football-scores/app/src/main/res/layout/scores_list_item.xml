@@ -5,7 +5,9 @@
     android:layout_height="wrap_content"
     android:background="@drawable/list_item"
     android:elevation="4dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/list_item_vertical_padding"
+    android:paddingTop="@dimen/list_item_vertical_padding">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,10 +32,10 @@
 
             <TextView
                 android:id="@+id/home_name"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/list_item_team_name_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/test_text"
                 android:textSize="@dimen/team_names"/>
         </LinearLayout>
@@ -81,10 +83,10 @@
 
             <TextView
                 android:id="@+id/away_name"
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:gravity="center"
+                android:gravity="end"
                 android:text="@string/test_text"
                 android:textSize="@dimen/team_names"/>
 

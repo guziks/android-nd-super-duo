@@ -9,6 +9,8 @@
     <dimen name="pager_tab_strip_text_size">18sp</dimen>
     <dimen name="about_text_size">16sp</dimen>
     <dimen name="list_item_horizontal_padding">24dp</dimen>
+    <dimen name="list_item_vertical_padding">8dp</dimen>
+    <dimen name="list_item_team_name_width">110dp</dimen>
 
     <dimen name="widget_horizontal_padding">16dp</dimen>
     <dimen name="widget_vertical_padding">8dp</dimen>
