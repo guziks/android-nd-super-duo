@@ -69,26 +69,32 @@ public class ScoresIntentService extends IntentService {
                 null, null, null,
                 DatabaseContract.ScoresTable.DATE_COL + " DESC, " + DatabaseContract.ScoresTable.TIME_COL + " DESC");
 
-        if (c != null) {
-            c.moveToFirst();
-            do {
-                String date      = c.getString(c.getColumnIndex(DatabaseContract.ScoresTable.DATE_COL));
-                String time      = c.getString(c.getColumnIndex(DatabaseContract.ScoresTable.TIME_COL));
-                String home      = c.getString(c.getColumnIndex(DatabaseContract.ScoresTable.HOME_COL));
-                String away      = c.getString(c.getColumnIndex(DatabaseContract.ScoresTable.AWAY_COL));
-                int    homeGoals = c.getInt(c.getColumnIndex(DatabaseContract.ScoresTable.HOME_GOALS_COL));
-                int    awayGoals = c.getInt(c.getColumnIndex(DatabaseContract.ScoresTable.AWAY_GOALS_COL));
-//                Log.v(TAG, "DateTime: " + date + " " + time + " " + "Goals: " + homeGoals + "-" + awayGoals);
-                if (homeGoals != -1 && awayGoals != -1) {
-                    mLatestHome = home;
-                    mLatestAway = away;
-                    mLatestScore = Utilies.getScores(homeGoals, awayGoals);
-                    mLatestTime = time;
-                    break;
-                }
-            } while (c.moveToNext());
-            c.close();
+        if (c == null) {
+            return;
         }
+
+        if (!c.moveToFirst()) {
+            c.close();
+            return;
+        }
+
+        do {
+            String date      = c.getString(c.getColumnIndex(DatabaseContract.ScoresTable.DATE_COL));
+            String time      = c.getString(c.getColumnIndex(DatabaseContract.ScoresTable.TIME_COL));
+            String home      = c.getString(c.getColumnIndex(DatabaseContract.ScoresTable.HOME_COL));
+            String away      = c.getString(c.getColumnIndex(DatabaseContract.ScoresTable.AWAY_COL));
+            int    homeGoals = c.getInt(c.getColumnIndex(DatabaseContract.ScoresTable.HOME_GOALS_COL));
+            int    awayGoals = c.getInt(c.getColumnIndex(DatabaseContract.ScoresTable.AWAY_GOALS_COL));
+//                Log.v(TAG, "DateTime: " + date + " " + time + " " + "Goals: " + homeGoals + "-" + awayGoals);
+            if (homeGoals != -1 && awayGoals != -1) {
+                mLatestHome = home;
+                mLatestAway = away;
+                mLatestScore = Utilies.getScores(homeGoals, awayGoals);
+                mLatestTime = time;
+                break;
+            }
+        } while (c.moveToNext());
+        c.close();
 //        Log.v(TAG, "Latest: " + mLatestHome + " " + mLatestScore + " " + mLatestAway);
     }
 
