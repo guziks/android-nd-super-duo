@@ -4,7 +4,7 @@
 - [x] Add content descriptions
 - [x] Change layouts to support right to left languages
 - [x] Enlarge fonts
-- [ ] Add scores widget
+- [x] Add scores widget
 
 ## Exceeds Specifications
 - [ ] Add collections widget
