@@ -46,6 +46,8 @@
             <meta-data android:name="android.appwidget.provider"
                        android:resource="@xml/scores_appwidget_info" />
         </receiver>
+
+        <service android:name=".appwidget.ScoresIntentService" />
     </application>
 
 </manifest>
