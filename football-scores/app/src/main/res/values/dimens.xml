@@ -4,6 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="share_button_margin">150dp</dimen>
     <dimen name="team_names">17sp</dimen>
+    <dimen name="widget_team_names">15sp</dimen>
     <dimen name="score">30sp</dimen>
     <dimen name="league">15sp</dimen>
     <dimen name="pager_tab_strip_text_size">18sp</dimen>

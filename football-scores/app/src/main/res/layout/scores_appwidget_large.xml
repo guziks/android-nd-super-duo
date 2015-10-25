@@ -34,7 +34,7 @@
             android:layout_gravity="start"
             android:gravity="start"
             android:text="@string/test_text"
-            android:textSize="@dimen/team_names"/>
+            android:textSize="@dimen/widget_team_names"/>
     </LinearLayout>
 
     <LinearLayout
@@ -90,7 +90,7 @@
             android:layout_gravity="end"
             android:gravity="end"
             android:text="@string/test_text"
-            android:textSize="@dimen/team_names"/>
+            android:textSize="@dimen/widget_team_names"/>
 
     </LinearLayout>
 

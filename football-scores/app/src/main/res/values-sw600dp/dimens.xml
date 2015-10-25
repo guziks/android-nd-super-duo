@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="share_button_margin">150dp</dimen>
-    <dimen name="team_names">17sp</dimen>
-    <dimen name="score">30sp</dimen>
-    <dimen name="league">15sp</dimen>
     <dimen name="list_item_team_name_width">220dp</dimen>
 </resources>
 
