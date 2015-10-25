@@ -18,6 +18,7 @@ import barqsoft.footballscores.DatabaseContract;
 import barqsoft.footballscores.MainActivity;
 import barqsoft.footballscores.R;
 import barqsoft.footballscores.Utilies;
+import barqsoft.footballscores.service.FetchService;
 
 public class ScoresWidgetProvider extends AppWidgetProvider {
 
@@ -31,7 +32,7 @@ public class ScoresWidgetProvider extends AppWidgetProvider {
 
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // update scores
-//        context.startService(new Intent(context, FetchService.class));
+        context.startService(new Intent(context, FetchService.class));
 
         getLatest(context);
 
@@ -45,6 +46,14 @@ public class ScoresWidgetProvider extends AppWidgetProvider {
         super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions);
         getLatest(context);
         updateWidget(context, appWidgetManager, appWidgetId);
+    }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+        if (intent.getAction().equals(FetchService.ACTION_DATA_FETCHED)) {
+            Log.d(TAG, "data fetched");
+        }
     }
 
     private void updateWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {

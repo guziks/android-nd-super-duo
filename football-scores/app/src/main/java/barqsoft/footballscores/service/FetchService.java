@@ -33,6 +33,8 @@ public class FetchService extends IntentService {
 
     public static final String LOG_TAG = "FetchService";
 
+    public static final String ACTION_DATA_FETCHED = "barqsoft.footballscores.action.DATA_FETCHED";
+
     public FetchService() {
         super("FetchService");
     }
@@ -41,6 +43,8 @@ public class FetchService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         getData("n2");
         getData("p2");
+
+        sendBroadcast(new Intent(ACTION_DATA_FETCHED));
 
         return;
     }

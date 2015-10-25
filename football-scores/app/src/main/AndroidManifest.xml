@@ -41,6 +41,7 @@
         <receiver android:name=".appwidget.ScoresWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="barqsoft.footballscores.action.DATA_FETCHED" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider"
                        android:resource="@xml/scores_appwidget_info" />
