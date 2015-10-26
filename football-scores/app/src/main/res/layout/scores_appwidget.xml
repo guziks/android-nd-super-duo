@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:paddingTop="@dimen/widget_vertical_padding"
     android:paddingBottom="@dimen/widget_vertical_padding"
-    android:paddingLeft="@dimen/widget_horizontal_padding"
-    android:paddingRight="@dimen/widget_horizontal_padding">
+    android:paddingEnd="@dimen/widget_horizontal_padding"
+    android:paddingStart="@dimen/widget_horizontal_padding"
+    android:paddingTop="@dimen/widget_vertical_padding">
 
     <ImageView
         android:id="@+id/home_crest"
