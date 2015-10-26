@@ -58,8 +58,8 @@ public class ScoresIntentService extends IntentService {
         views.setTextViewText(R.id.away_name, mLatestAway);
         views.setTextViewText(R.id.score_textview, mLatestScore);
         views.setTextViewText(R.id.data_textview, mLatestTime);
-        views.setImageViewResource(R.id.home_crest, Utilies.getTeamCrestByTeamName(mLatestHome));
-        views.setImageViewResource(R.id.away_crest, Utilies.getTeamCrestByTeamName(mLatestAway));
+        views.setImageViewResource(R.id.home_crest, Utilies.getTeamCrestByTeamName(context.getResources(), mLatestHome));
+        views.setImageViewResource(R.id.away_crest, Utilies.getTeamCrestByTeamName(context.getResources(), mLatestAway));
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
@@ -89,7 +89,7 @@ public class ScoresIntentService extends IntentService {
             if (homeGoals != -1 && awayGoals != -1) {
                 mLatestHome = home;
                 mLatestAway = away;
-                mLatestScore = Utilies.getScores(homeGoals, awayGoals);
+                mLatestScore = Utilies.getScores(context.getResources(), homeGoals, awayGoals);
                 mLatestTime = time;
                 break;
             }
